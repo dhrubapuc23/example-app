@@ -57,3 +57,5 @@ Route::get('/feature', function () {
 Route::get('/student', [StudentController::class, 'index']);
 //Route::resource('photo', PhotoController::class);
 Route::get('/getcourse', [StudentController::class, 'getcoursedetails']);
+Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
+Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');

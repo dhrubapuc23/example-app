@@ -30,7 +30,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('student');
     }
 
     /**
@@ -38,7 +38,39 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|email',
+            'address' => 'required|min:10|max:100',
+            'semester' => 'required|integer|min:1|max:8',
+            'gpa' => 'required|min:2.0|max:4.0'
+        ],
+        [
+            'name.required' => 'Name is required',
+            'name.min' => 'Name must be at least 3 characters',
+            'name.max' => 'Name must not exceed 50 characters',
+            'email.required' => 'Email is required',
+            'email.email' => 'Email must be a valid email address',
+            'address.required' => 'Address is required',
+            'address.min' => 'Address must be at least 10 characters',
+            'address.max' => 'Address must not exceed 100 characters',
+            'semester.required' => 'Semester is required',
+            'semester.integer' => 'Semester must be an integer',
+            'semester.min' => 'Semester must be at least 1',
+            'semester.max' => 'Semester must not exceed 8',
+            'gpa.required' => 'GPA is required',
+            'gpa.min' => 'GPA must be at least 2.0',
+            'gpa.max' => 'GPA must not exceed 4.0',
+        ]);
+        DB::table('students')->insert([
+            'student_name' => $request->name,
+            'email' => $request->email,
+            'address' => $request->address,
+            'semester' => $request->semester,
+            'gpa' => $request->gpa
+        ]);
+        dd('form submitted');
+       // return redirect()->route('student.create')->with('success', 'Student created successfully');
     }
 
     /**
