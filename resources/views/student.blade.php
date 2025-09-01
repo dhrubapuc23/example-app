@@ -2,7 +2,6 @@
 @section('info')
     <div class="col-md-4 offset-md-4">
         <h2>Student Information</h2>
-        
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
