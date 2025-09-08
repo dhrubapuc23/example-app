@@ -60,3 +60,6 @@ Route::get('/getcourse', [StudentController::class, 'getcoursedetails']);
 Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
 Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
 Route::get('/student/show', [StudentController::class, 'getData'])->name('student.show');
+Route::get('/student/edit/{id}', [StudentController::class, 'Edit'])->name('student.edit');
+Route::post('/student/update/{id}', [StudentController::class, 'Update'])->name('student.update');
+Route::get('/student/delete/{id}', [StudentController::class, 'Delete'])->name('student.delete');
