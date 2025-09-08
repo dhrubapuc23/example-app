@@ -70,8 +70,14 @@ class StudentController extends Controller
             'semester' => $request->semester,
             'gpa' => $request->gpa
         ]);
-        dd('form submitted');
-       // return redirect()->route('student.create')->with('success', 'Student created successfully');
+        //dd('form submitted');
+       return redirect()->route('student.create')->with('success', 'Student created successfully');
+    }
+
+    public function getData()
+    {
+        $students = DB::table('students')->paginate(20);
+        return view('show-students',['students'=>$students]);
     }
 
     /**

@@ -37,7 +37,7 @@
      
     </ul>
 </nav>
-<div class="row">
+{{-- <div class="row">
   <div class="col-md-8 offset-md-2">
     <div class="jumbotron">
   <h1 class="display-4">Hello, world!</h1>
@@ -47,7 +47,7 @@
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 </div>
-</div>
+</div> --}}
 
 <div class="row">
   @yield('info')

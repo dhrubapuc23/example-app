@@ -59,3 +59,4 @@ Route::get('/student', [StudentController::class, 'index']);
 Route::get('/getcourse', [StudentController::class, 'getcoursedetails']);
 Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
 Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
+Route::get('/student/show', [StudentController::class, 'getData'])->name('student.show');
