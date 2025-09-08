@@ -62,4 +62,4 @@ Route::post('/student/store', [StudentController::class, 'store'])->name('studen
 Route::get('/student/show', [StudentController::class, 'getData'])->name('student.show');
 Route::get('/student/edit/{id}', [StudentController::class, 'Edit'])->name('student.edit');
 Route::post('/student/update/{id}', [StudentController::class, 'Update'])->name('student.update');
-Route::get('/student/delete/{id}', [StudentController::class, 'Delete'])->name('student.delete');
+Route::get('/student/delete/{id}', [StudentController::class, 'Destroy'])->name('student.delete');
