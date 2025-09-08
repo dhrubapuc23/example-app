@@ -120,4 +120,14 @@ class StudentController extends Controller
         DB::table('students')->where('id',$id)->delete();
         return redirect()->route('student.show')->with('success', 'Student deleted successfully');
     }
+
+    public function Search(Request $request)
+    {
+        $student = DB::table('students')->find($request->search);
+        if($student){
+            return view('search-student',['student'=>$student]);
+        } else {
+            return redirect()->route('student.show')->with('error', 'Student not found');
+        }
+    }
 }

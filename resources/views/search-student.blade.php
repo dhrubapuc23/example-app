@@ -1,21 +1,7 @@
 @extends('dashboard')
 @section('info')
-    <div class="col-md-2 mt-4 mb-4">
-        <form action="{{route('student.search')}}" method="post">
-            @csrf
-            <div class="form-group">
-              <input type="text" name="search" id="search" class="form-control" autocomplete="off">
-            </div>
-            <input type="submit" value="Search" class="btn btn-info">
-        </form>
-    </div>
-    <div class="col-md-10">
-        <h2>All Students</h2>
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
+    <div class="col-md-8 offset-md-2">
+        <h2>Student Record for ID: {{$student->id}}</h2>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -29,7 +15,6 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($students as $student)
                 <tr>
                     <td>{{$student->id}}</td>
                     <td>{{$student->student_name}}</td>
@@ -39,9 +24,7 @@
                     <td><a href="{{route('student.edit',[$student->id])}}" class="btn btn-primary">Edit</a></td>
                     <td><a href="{{route('student.delete',[$student->id])}}" class="btn btn-danger" onclick="confirm('Are you sure?')">Delete</a></td>
                 </tr>
-                @endforeach
             </tbody>
         </table>
-        {!! $students->withQueryString()->links('pagination::bootstrap-4') !!}
     </div>
 @endsection

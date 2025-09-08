@@ -63,3 +63,4 @@ Route::get('/student/show', [StudentController::class, 'getData'])->name('studen
 Route::get('/student/edit/{id}', [StudentController::class, 'Edit'])->name('student.edit');
 Route::post('/student/update/{id}', [StudentController::class, 'Update'])->name('student.update');
 Route::get('/student/delete/{id}', [StudentController::class, 'Destroy'])->name('student.delete');
+Route::post('/student/search',[StudentController::class, 'Search'])->name('student.search');
