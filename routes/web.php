@@ -64,3 +64,5 @@ Route::get('/student/edit/{id}', [StudentController::class, 'Edit'])->name('stud
 Route::post('/student/update/{id}', [StudentController::class, 'Update'])->name('student.update');
 Route::get('/student/delete/{id}', [StudentController::class, 'Destroy'])->name('student.delete');
 Route::post('/student/search',[StudentController::class, 'Search'])->name('student.search');
+Route::get('file-upload', [StudentController::class, 'fileUpload'])->name('file.upload');
+Route::post('file-upload', [StudentController::class, 'fileUploadSubmit'])->name('file.upload.submit');

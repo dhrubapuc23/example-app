@@ -127,7 +127,27 @@ class StudentController extends Controller
         if($student){
             return view('search-student',['student'=>$student]);
         } else {
-            return redirect()->route('student.show')->with('error', 'Student not found');
+            return redirect()->route('student.show')->with('success', 'Student not found');
         }
+    }
+
+    public function fileUpload()
+    {
+        return view('file-upload');
+    }
+
+    public function fileUploadSubmit(Request $req)
+    {
+        $req->validate([
+            'file' => 'required|mimes:jpg,jpeg,png,pdf,doc|max:2048'
+        ]);
+        $file = $req->file;
+        $customName = time().'_'.$file->getClientOriginalName();
+        $filePath = $file->storeAs('/uploads',$customName,'public');
+        //dd($customName);
+        DB::table('files')->insert([
+            'filepath' => $filePath
+        ]);
+        return back()->with('success','File has been uploaded successfully');
     }
 }

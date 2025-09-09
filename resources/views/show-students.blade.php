@@ -4,7 +4,7 @@
         <form action="{{route('student.search')}}" method="post">
             @csrf
             <div class="form-group">
-              <input type="text" name="search" id="search" class="form-control" autocomplete="off">
+              <input type="number" name="search" id="search" class="form-control" autocomplete="off">
             </div>
             <input type="submit" value="Search" class="btn btn-info">
         </form>
