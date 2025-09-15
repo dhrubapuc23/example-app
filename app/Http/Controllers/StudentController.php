@@ -133,20 +133,21 @@ class StudentController extends Controller
 
     public function fileUpload()
     {
-        return view('file-upload');
+        $files = DB::table('files')->get();
+        return view('file-upload',['files'=>$files]);
     }
 
     public function fileUploadSubmit(Request $req)
     {
-        $req->validate([
-            'file' => 'required|mimes:jpg,jpeg,png,pdf,doc|max:2048'
-        ]);
+        // $req->validate([
+        //     'file' => 'required|mimes:jpg,jpeg,png,pdf,doc|max:2048'
+        // ]);
         $file = $req->file;
         $customName = time().'_'.$file->getClientOriginalName();
-        $filePath = $file->storeAs('/uploads',$customName,'public');
+        $filePath = $file->storeAs('/',$customName,'dir_public');
         //dd($customName);
         DB::table('files')->insert([
-            'filepath' => $filePath
+            'filepath' => 'uploads/'.$filePath
         ]);
         return back()->with('success','File has been uploaded successfully');
     }

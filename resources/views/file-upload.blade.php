@@ -17,5 +17,23 @@
             </div>
             <input type="submit" value="Upload" class="btn btn-info">
         </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>File Path</th>
+                    <th>File</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($files as $file)
+                <tr>
+                    <td scope="row">{{$file->id}}</td>
+                    <td>{{$file->filepath}}</td>
+                    <td><img src="{{asset($file->filepath)}}" alt="" srcset="" width="50" height="50"></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection
