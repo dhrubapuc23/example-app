@@ -1,5 +1,5 @@
-@extends('dashboard')
-@section('info')
+@extends('layouts.app')
+@section('content')
     <div class="col-md-8 offset-md-2">
         @if (session('success'))
             <div class="alert alert-success">
