@@ -33,6 +33,12 @@
                         <li class="nav-item">
                                 <a class="nav-link" href="{{ route('student.show') }}">{{ __('Students') }}</a>
                         </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('student.create') }}">{{ __('Add New Student') }}</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('file.upload') }}">{{ __('Upload File') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

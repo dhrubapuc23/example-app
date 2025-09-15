@@ -151,4 +151,14 @@ class StudentController extends Controller
         ]);
         return back()->with('success','File has been uploaded successfully');
     }
+
+    public function getstaffs()
+    {
+        return view('create-staffs');
+    }
+
+    public function storestaffs(Request $request)
+    {
+        return redirect()->route('student.show');
+    }
 }
